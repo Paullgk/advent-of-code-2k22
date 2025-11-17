@@ -1,0 +1,6 @@
+[project]
+org='paullgk'
+name='advent-of-code-2k22'
+
+[build]
+command='./build.sh'
