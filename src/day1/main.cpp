@@ -7,6 +7,7 @@ int main(int argc,char* argv[]){
     string input_data;
     int most_caloried_elf = 0;
     int read_status = 0;
+    int top_three_calories_sum = 0;
 
     read_status = tool.readInputFile("src/day1/input", &input_data);
 
@@ -15,6 +16,12 @@ int main(int argc,char* argv[]){
         most_caloried_elf = day1.findMaxElfCalories();
 
         cout << "DAY 1: Answer for first puzzle is " << most_caloried_elf << endl;
+
+
+        top_three_calories_sum = day1.findTopThreeElfCalories();
+
+        cout << "DAY 1: Answer for second puzzle is " << top_three_calories_sum << endl;
+
         return 0;
     }
 

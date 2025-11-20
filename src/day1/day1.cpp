@@ -88,3 +88,20 @@ int Day1::findMaxElfCalories(){
 
     return max_calorie;
 }
+
+int Day1::findTopThreeElfCalories(){
+    vector<int> sorted_calories;
+    vector<int>::iterator it;
+    int current_elf_calories_sum = 0;
+    int top_three_calories_sum = 0;
+
+    for(auto elf:elfs){
+        current_elf_calories_sum = elf.getTotalCalories();
+        sorted_calories.push_back(current_elf_calories_sum);
+    }
+    sort(sorted_calories.begin(), sorted_calories.end(),greater<int>());
+
+    top_three_calories_sum = accumulate(sorted_calories.begin(), sorted_calories.begin()+3, 0);
+
+    return top_three_calories_sum;
+}

@@ -40,6 +40,8 @@ class Day1 {
          */
         int findMaxElfCalories();
 
+        int findTopThreeElfCalories();
+
     private:
         /**
          * @brief The vector of elfs carrying their food.
