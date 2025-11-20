@@ -11,11 +11,15 @@ cmake_minimum_required(VERSION 3.15...4.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(GOOGLETEST_VERSION 1.17.0)
-enable_testing()
-add_subdirectory(googletest)
-include_directories(googletest/include)
-include(GoogleTest)
+option(BUILD_TESTING "Enable tests" OFF)
+
+if(BUILD_TESTING)
+  set(GOOGLETEST_VERSION 1.17.0)
+  enable_testing()
+  add_subdirectory(googletest)
+  include_directories(googletest/include)
+  include(GoogleTest)
+endif()
 
 # This is your project statement. You should always list languages;
 # Listing the version is nice here since it sets lots of useful variables

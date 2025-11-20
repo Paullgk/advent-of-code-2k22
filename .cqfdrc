@@ -4,3 +4,6 @@ name='advent-of-code-2k22'
 
 [build]
 command='./build.sh'
+
+[test]
+command='./build.sh -DBUILD_TESTING=ON'
