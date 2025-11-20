@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  seapath-installer-build:
+  advent-of-code-2k22-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -34,3 +34,17 @@ jobs:
       - name: Initialize cqfd
         run: |
           cqfd init
+      - name: Install googletest
+        run: |
+          git clone https://github.com/google/googletest.git
+          cd googletest
+          git checkout v1.17.0
+      - name: Build all days with tests
+        run: |
+          cqfd -b test
+      - name: Run tests
+        run: |
+          cqfd run bin/day1_tests
+      - name: Run days
+        run: |
+          cqfd run bin/day1
