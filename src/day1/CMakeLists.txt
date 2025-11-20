@@ -12,7 +12,7 @@ target_include_directories(day1
         ${PROJECT_SOURCE_DIR}/include
 )
 
-target_link_libraries( day1
+target_link_libraries(day1
     PRIVATE
         tools
 )
