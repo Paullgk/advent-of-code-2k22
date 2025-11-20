@@ -35,6 +35,23 @@ TEST(CheckDay1PartOne, findMaxElfCalories)
         GTEST_ASSERT_EQ(most_caloried_elf, 69501);
     }
 }
+
+TEST(CheckDay1PartTwo, top_three_most_caloried_elf)
+{
+    Day1 day1;
+    string input_data;
+    Tools tool;
+    int read_status = 0;
+    int top_three_most_caloried_elf = 0;
+
+    read_status = tool.readInputFile("src/day1/example", &input_data);
+
+    if(read_status == 0){
+        day1.extractFood(input_data);
+        top_three_most_caloried_elf = day1.findTopThreeElfCalories();
+        GTEST_ASSERT_EQ(top_three_most_caloried_elf, 45000);
+    }
+}
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
