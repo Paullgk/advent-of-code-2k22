@@ -31,3 +31,26 @@ int Tools::readInputFile(string InputFile, string* FileContent){
 
     return 0;
 }
+
+void Tools::extractLines(string input_data, vector<string>* output_lines){
+    const int input_data_length = input_data.length();
+    int current_pos = 0;
+    int carriage_pos = 0;
+    string line;
+    int absolute_calories = 0;
+    int line_length = 0;
+
+
+    while ( current_pos < input_data_length ) {
+        carriage_pos = input_data.find('\n', current_pos);
+
+        if( carriage_pos == -1)
+            break;
+
+        line = input_data.substr(current_pos, carriage_pos - current_pos);
+        output_lines->push_back(line);
+
+        line_length = line.length();
+        current_pos = carriage_pos + 1;
+    }
+}

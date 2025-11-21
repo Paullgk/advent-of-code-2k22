@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-
+#include <vector>
 using namespace std;
 
 extern const string SPACE_DELIMITER;
@@ -25,5 +25,14 @@ class Tools {
          *
          */
         int readInputFile(string InputFile, string* FileContent);
+
+        /**
+         * @brief Generic lines extractor. Extract each lines from the
+         * input_data and push back them into output_lines vector.
+         *
+         * @param input_data The raw input data.
+         * @param output_lines A vector containing each line extracted.
+         */
+        void extractLines(string input_data, vector<string>* output_lines);
 };
 #endif
