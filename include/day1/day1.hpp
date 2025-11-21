@@ -47,6 +47,7 @@ class Day1 {
          * @brief The vector of elfs carrying their food.
          *
          */
-        vector<Elf> elfs;
+        vector<Elf> m_elfs;
+        Tools m_tool;
 };
 #endif
