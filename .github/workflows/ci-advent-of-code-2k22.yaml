@@ -44,7 +44,7 @@ jobs:
           cqfd -b test
       - name: Run tests
         run: |
-          cqfd run bin/day1_tests
+          cqfd run bin/tests
       - name: Run days
         run: |
           cqfd run bin/day1
