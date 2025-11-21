@@ -18,7 +18,7 @@ private:
      * @brief Vector of each food carried by the ELF, in calories unit.
      *
      */
-    vector<int> food;
+    vector<int> m_food;
 
 
 public:
@@ -35,6 +35,13 @@ public:
      * @return int The total sum of the calories carried by the elf.
      */
     int getTotalCalories();
+
+    /**
+     * @brief Set the Elf `m_food` food calories vector.
+     *
+     * @param foodCalories A vector of int containing the food calories
+     */
+    void setElfFoodCalories(vector<int> foodCalories);
 
 };
 #endif
