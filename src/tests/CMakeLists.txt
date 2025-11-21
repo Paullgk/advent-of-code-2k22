@@ -4,6 +4,8 @@ set(SOURCES
     tests.cpp
     ../day1/day1.cpp
     ../day1/elf.cpp
+    ../day2/day2.cpp
+    ../day2/player.cpp
 )
 
 add_executable(tests ${SOURCES})
