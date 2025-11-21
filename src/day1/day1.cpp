@@ -12,7 +12,8 @@ void Day1::extractFood(string InputData){
     while ( current_pos < InputDataLength )
     {
         Elf tiny_elf;
-
+        vector<string> extracted_calories;
+        vector<int> extracted_absolute_calories;
         // Looking for the space delimiter, that delimit each elf in
         // input data
         space_pos = InputData.find(SPACE_DELIMITER, current_pos);
@@ -27,9 +28,15 @@ void Day1::extractFood(string InputData){
 
         // From the extracted food, extract the calories and add them
         // to our tiny elf
+        m_tool.extractLines(elf_food, &extracted_calories);
 
-        extractCalories(elf_food, &tiny_elf);
-        elfs.push_back(tiny_elf);
+        for(auto extracted_calorie:extracted_calories){
+            extracted_absolute_calories.push_back(stoi(extracted_calorie));
+        }
+
+        tiny_elf.setElfFoodCalories(extracted_absolute_calories);
+
+        m_elfs.push_back(tiny_elf);
 
         if( space_pos == -1)
             break;
@@ -72,7 +79,7 @@ int Day1::findMaxElfCalories(){
     int sum = 0;
 
     // Parse every defined elfs
-    for(auto elf:elfs){
+    for(auto elf:m_elfs){
         elf_calorie = elf.getTotalCalories();
         cout << "DEBUG: Elf " << elf_index << " weigth " << elf_calorie << endl;
 
@@ -95,7 +102,7 @@ int Day1::findTopThreeElfCalories(){
     int current_elf_calories_sum = 0;
     int top_three_calories_sum = 0;
 
-    for(auto elf:elfs){
+    for(auto elf:m_elfs){
         current_elf_calories_sum = elf.getTotalCalories();
         sorted_calories.push_back(current_elf_calories_sum);
     }
