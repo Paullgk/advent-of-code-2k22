@@ -48,3 +48,4 @@ jobs:
       - name: Run days
         run: |
           cqfd run bin/day1
+          cqfd run bin/day2
