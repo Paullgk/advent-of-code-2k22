@@ -136,6 +136,29 @@ TEST(CheckDay2PartOne, computeSimpleGame){
         GTEST_ASSERT_EQ(computedScore, 14264);
     }
 }
+
+TEST(CheckDay2PartTwo, computeComplexGame){
+
+    Day2 day2;
+    string input_data;
+    Tools tool;
+    vector<string> rounds;
+    int computedScore = 0;
+    int read_status = 0;
+
+    read_status = tool.readInputFile("src/day2/input", &input_data);
+
+    if(read_status == 0){
+        tool.extractLines(input_data, &rounds);
+
+        for(auto round:rounds){
+            computedScore = day2.complexComputeGame(round);
+        }
+
+        GTEST_ASSERT_EQ(computedScore, 12382);
+    }
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

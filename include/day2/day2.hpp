@@ -37,6 +37,16 @@ class Day2 {
          * @return int The player 2 total score
          */
         int simpleComputeGame(string round);
+        /**
+         * @brief Complex game computation (part 2).
+         *
+         * @param round The current played round containing the player
+         * 1 shape and the player 2 action.
+         * played shape (e.g A X).
+         * @return int The player 2 total score.
+         */
+        int complexComputeGame(string round);
+
 };
 
 #endif

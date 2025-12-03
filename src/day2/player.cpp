@@ -55,6 +55,33 @@ int Player::translateAsciiToShape(int asciiShape){
     return playedShape;
 }
 
+int Player::translateAsciiToAction(int asciiShape){
+    int magicNumber = 0;
+    int actionToPlay;
+
+    switch (asciiShape)
+    {
+    case 88:
+    // 'X' ASCII char
+        actionToPlay = X;
+        break;
+    case 89:
+    // 'Y' ASCII char
+        actionToPlay = Y;
+        break;
+    case 90:
+    // 'Z' ASCII char
+        actionToPlay = Z;
+        break;
+    default:
+        cout << "ERROR: Unauthorized ASCII character provided: " << (char)asciiShape << endl;
+        actionToPlay = GAME_ERROR;
+        break;
+    }
+    return actionToPlay;
+}
+
+
 
 void Player::updateScore(int score){
     m_score += score;
