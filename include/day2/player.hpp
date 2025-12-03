@@ -77,6 +77,15 @@ class Player {
          */
         GAME_END computeHandScore(int resultedHand, SHAPE playedShape, int *computedScore);
         /**
+         * @brief From the extracted ASCII round, translate it to an
+         * action (X, Y, Z).
+         *
+         * @param asciiShape The extracted action in ASCII format.
+        * @return int The action to do, GAME_ERROR if an incorrect
+         *shape has been provided.
+         */
+        int translateAsciiToAction(int asciiShape);
+        /**
          * @brief Update the score of the player.
          *
          * @param score The score value to accumulate.

@@ -4,12 +4,16 @@
 #include <day2/player.hpp>
 
 int main(int argc,char* argv[]){
-    Day2 day2;
+    Day2 day2PartOne;
+    Day2 day2PartTwo;
+
     Tools tool;
     string input_data;
     int read_status = 0;
     vector<string> rounds;
-    int computedScore = 0;
+    int partOnecomputedScore = 0;
+    int partTwocomputedScore = 0;
+
     int totalScore = 0;
     read_status = tool.readInputFile("src/day2/input", &input_data);
 
@@ -17,14 +21,17 @@ int main(int argc,char* argv[]){
         tool.extractLines(input_data, &rounds);
 
         for(auto round:rounds){
-            computedScore = day2.simpleComputeGame(round);
+            partOnecomputedScore = day2PartOne.simpleComputeGame(round);
+            partTwocomputedScore = day2PartTwo.complexComputeGame(round);
 
-            if(computedScore == GAME_ERROR){
+            if((partOnecomputedScore || partTwocomputedScore) == GAME_ERROR){
                 return GAME_ERROR;
             }
         }
 
-        cout << "DAY 2: Answer for first puzzle is " << computedScore << endl;
+        cout << "DAY 2: Answer for first puzzle is " << partOnecomputedScore << endl;
+        cout << "DAY 2: Answer for second puzzle is " << partTwocomputedScore << endl;
+
     }
     return 0;
 }
