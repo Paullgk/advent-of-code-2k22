@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include/**",
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/googletest/googletest/include/**"
+            ]
+        }
+    ],
+    "version": 4
+}

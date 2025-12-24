@@ -1,0 +1,15 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build",
+            "command": "cqfd"
+        },
+
+        {
+            "type": "shell",
+            "label": "Build tests",
+            "command": "cqfd -b test"
+        }
+    ]
+}
