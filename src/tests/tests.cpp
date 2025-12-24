@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <day1/day1.hpp>
 #include <day2/day2.hpp>
+#include <day3/day3.hpp>
 #include <day2/player.hpp>
 #include <tools/tools.h>
 
@@ -138,7 +139,6 @@ TEST(CheckDay2PartOne, computeSimpleGame){
 }
 
 TEST(CheckDay2PartTwo, computeComplexGame){
-
     Day2 day2;
     string input_data;
     Tools tool;
@@ -158,6 +158,56 @@ TEST(CheckDay2PartTwo, computeComplexGame){
         GTEST_ASSERT_EQ(computedScore, 12382);
     }
 }
+
+/* DAY 3 TESTS*/
+TEST(CheckRucksackExtraction, splitRucksack){
+    Day3 day3PartOne;
+    string input_data;
+    Tools tool;
+    int computedScore = 0;
+    int read_status = 0;
+    vector<string> rucksacks;
+    string splittedRucksackFirstPart;
+    string splittedRucksackSecondPart;
+
+    read_status = tool.readInputFile("src/day3/example", &input_data);
+
+    if(read_status == 0){
+        tool.extractLines(input_data, &rucksacks);
+        for(auto rucksack:rucksacks){
+            day3PartOne.splitRucksack(rucksack, &splittedRucksackFirstPart, &splittedRucksackSecondPart);
+            break;
+        }
+
+        GTEST_ASSERT_EQ(splittedRucksackFirstPart, "vJrwpWtwJgWr");
+        GTEST_ASSERT_EQ(splittedRucksackSecondPart, "hcsFMMfFFhFp");
+    }
+}
+
+TEST(CheckDay3PartOne, splitRucksack){
+    Day3 day3PartOne;
+    string input_data;
+    Tools tool;
+    int computedScore = 0;
+    int read_status = 0;
+    int answerPartOne = 0;
+    vector<string> rucksacks;
+    string splittedRucksackFirstPart;
+    string splittedRucksackSecondPart;
+
+    read_status = tool.readInputFile("src/day3/input", &input_data);
+
+    if(read_status == 0){
+        tool.extractLines(input_data, &rucksacks);
+        for(auto rucksack:rucksacks){
+            day3PartOne.splitRucksack(rucksack, &splittedRucksackFirstPart, &splittedRucksackSecondPart);
+            day3PartOne.findItemOccurrences(&splittedRucksackFirstPart, &splittedRucksackSecondPart);
+        }
+        answerPartOne = day3PartOne.getSumPriority();
+        GTEST_ASSERT_EQ(answerPartOne, 8394);
+    }
+}
+
 
 int main(int argc, char* argv[])
 {

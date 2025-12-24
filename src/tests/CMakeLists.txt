@@ -5,6 +5,7 @@ set(SOURCES
     ../day1/day1.cpp
     ../day1/elf.cpp
     ../day2/day2.cpp
+    ../day3/day3.cpp
     ../day2/player.cpp
 )
 

@@ -49,3 +49,4 @@ jobs:
         run: |
           cqfd run bin/day1
           cqfd run bin/day2
+          cqfd run bin/day3
